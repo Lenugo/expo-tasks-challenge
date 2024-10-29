@@ -1,4 +1,4 @@
-import { StyleSheet, ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { useEffect, useState } from 'react';
 import RestartErrorMessage from '@/components/RestartErrorMessage';
 import UsersList from '@/components/UsersList';
@@ -24,16 +24,16 @@ export default function ListScreen() {
       }).then(data => {
         setUsers(data);
         setIsLoading(false);
-    })
+      })
     } catch (error) {
-      setErrorMessage(true);    
+      setErrorMessage(true);
       setIsLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
-    getUSers()
-  }, [])
+    getUSers();
+  }, []);
   
   return (
     <WrapperScrollView title='Contact List'>
@@ -45,21 +45,3 @@ export default function ListScreen() {
     </WrapperScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  tileTitle: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32
-  }
-});

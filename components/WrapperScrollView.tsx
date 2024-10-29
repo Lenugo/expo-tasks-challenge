@@ -20,7 +20,7 @@ export default function WrapperScrollView({ title,  children }: IWrapperProps) {
 const styles = StyleSheet.create({
   wrapperContainer: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#f9f9f9'
   },
   wrapperContent: {
     flex: 1,

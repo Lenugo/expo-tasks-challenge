@@ -51,10 +51,9 @@ const styles = StyleSheet.create({
   viewInfo: {
     marginTop: 24,
     justifyContent: 'center',
-    borderRadius: 25,
     flex: 1,
     marginRight: 10,
-    marginLeft: 40,
+    marginLeft: 60,
     paddingTop: 20,
     paddingBottom: 14,
     borderBottomColor: '#eee',
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
   usernameInfo: {
     fontSize: 14,
     fontWeight: '600',
-    marginLeft: 40,
+    marginLeft: 20,
     paddingBottom: 10
   }
 });
