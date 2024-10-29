@@ -12,5 +12,5 @@ export type IFlatUSers = FlatListProps<IUsers[]> & {
 }
 
 export type IRestarError = TextProps & {
-  onCallFnc: Function
+  onCallFnc: () => void;
 }

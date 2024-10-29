@@ -10,18 +10,19 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { addTask } from '../../redux/features/tasksSlice';
 import TaskModal from './TaskModal';
-import { IRenderItem, ITasksScreen } from '@/types/tasks.types';
+import { ITask } from '@/types/tasks.types';
+import { RootState } from '@/redux/store';
 
-const TasksScreen = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const tasks = useSelector((state: ITasksScreen) => state.tasks.tasks);
+const TasksScreen: React.FC = () => {
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const tasks = useSelector((state: RootState) => state.tasks.tasks);
   const dispatch = useDispatch();
 
   const handleAddTask = (text: string): void => {
     dispatch(addTask(text));
   };
 
-  const renderItem = ({ item }: IRenderItem ): React.JSX.Element => (
+  const renderItem = ({ item }: { item: ITask }): React.JSX.Element => (
     <View style={styles.taskItem}>
       <Text style={styles.taskText}>- {item.text}</Text>
     </View>

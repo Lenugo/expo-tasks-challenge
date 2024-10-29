@@ -9,18 +9,8 @@ export interface ITasksState {
   tasks: ITask[];
 }
 
-export type IRenderItem = {
-  item:  ITask
-}
-
-export type ITasksScreen = {
-  tasks: {
-    tasks: ITask[]
-  }
-}
-
 export type ITaskModal =  & ModalProps & {
   visible: boolean;
-  onClose: any;
-  onSubmit: Function;
+  onClose: () => void;
+  onSubmit: (text: string) => void;
 }

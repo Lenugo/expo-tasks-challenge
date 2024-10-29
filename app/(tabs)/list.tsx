@@ -1,5 +1,5 @@
 import { ActivityIndicator } from 'react-native';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RestartErrorMessage from '@/components/list/RestartErrorMessage';
 import UsersList from '@/components/list/UsersList';
 import { IUsers } from '@/types/users.types';
@@ -24,9 +24,12 @@ export default function ListScreen() {
       }).then(data => {
         setUsers(data);
         setIsLoading(false);
-      })
+      });
     } catch (error) {
       setErrorMessage(true);
+      setIsLoading(false);
+      setUsers([]);
+    } finally {
       setIsLoading(false);
     }
   };

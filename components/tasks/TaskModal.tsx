@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import {
   Modal,
@@ -12,7 +10,7 @@ import {
 } from 'react-native';
 import { ITaskModal } from '../../types/tasks.types';
 
-const TaskModal = ({ visible, onClose, onSubmit }: ITaskModal) => {
+const TaskModal: React.FC<ITaskModal> = ({ visible, onClose, onSubmit }) => {
   const [taskText, setTaskText] = useState('');
 
   const handleSubmit = () => {
