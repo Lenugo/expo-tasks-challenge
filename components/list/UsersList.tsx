@@ -29,7 +29,6 @@ export default function UsersList({ users = [] }: IFlatUSers ) {
   )
 }
 
-
 const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: 'row',

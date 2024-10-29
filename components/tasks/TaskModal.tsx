@@ -10,7 +10,7 @@ import {
   StyleSheet,
   Alert
 } from 'react-native';
-import { ITaskModal } from '../types/tasks.types';
+import { ITaskModal } from '../../types/tasks.types';
 
 const TaskModal = ({ visible, onClose, onSubmit }: ITaskModal) => {
   const [taskText, setTaskText] = useState('');

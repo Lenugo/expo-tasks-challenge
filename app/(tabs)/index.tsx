@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import TasksScreen from '@/components/TasksScreen';
+import TasksScreen from '@/components/tasks/TasksScreen';
 
 export default function HomeScreen() {
   return (
@@ -15,8 +15,7 @@ const styles = StyleSheet.create({
     padding: 32,
     gap: 16,
     overflow: 'hidden',
-    marginTop: 24,
-    paddingVertical: 40,
+    paddingVertical: 60,
     backgroundColor: '#f9f9f9'
   },
 });

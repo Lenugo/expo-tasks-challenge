@@ -1,9 +1,9 @@
 import { ActivityIndicator } from 'react-native';
 import { useEffect, useState } from 'react';
-import RestartErrorMessage from '@/components/RestartErrorMessage';
-import UsersList from '@/components/UsersList';
+import RestartErrorMessage from '@/components/list/RestartErrorMessage';
+import UsersList from '@/components/list/UsersList';
 import { IUsers } from '@/types/users.types';
-import WrapperScrollView from '@/components/WrapperScrollView';
+import WrapperScrollView from '@/components/list/WrapperScrollView';
 import { ENV } from '../../config/env'
 
 export default function ListScreen() {

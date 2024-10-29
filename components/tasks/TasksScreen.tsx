@@ -8,8 +8,8 @@ import {
   SafeAreaView
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTask } from '../redux/features/tasksSlice';
-import TaskModal from '../components/TaskModal';
+import { addTask } from '../../redux/features/tasksSlice';
+import TaskModal from './TaskModal';
 import { IRenderItem, ITasksScreen } from '@/types/tasks.types';
 
 const TasksScreen = () => {
