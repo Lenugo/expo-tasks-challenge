@@ -1,50 +1,59 @@
-# Welcome to your Expo app 👋
+# Welcome to React Native Challenge app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Table of contents
 
-## Get started
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+- [Setup](#setup)
+  - [Built with](#built-with)
+  - [How to setup](#how-to-setup)
+- [Author](#author)
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+## Overview 
 
-2. Start the app
+### The Challenge
 
-   ```bash
-    npx expo start
-   ```
+Users should be able to:
 
-In the output, you'll find options to open the app in a
+> This project is a simple React Native mobile application focused on task management and data fetching capabilities. The app features a dual-section structure with a main navigation screen containing two primary buttons. The first section implements a basic task management system where users can view and add tasks with descriptions. The second section demonstrates data fetching functionality by retrieving and displaying a list of items from a remote API endpoint. 
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Screenshot
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+> Android View
+> <img src="assets/images/screenshots/task1.png" />
+> <img src="assets/images/screenshots/task2.png" />
+> <img src="assets/images/screenshots/list1.png" />
+> <img src="assets/images/screenshots/list2.png" />
 
-## Get a fresh project
 
-When you're ready, run:
+## Setup
+### Built with
 
-```bash
-npm run reset-project
+- [Expo](https://docs.expo.dev/) with Typescript as React Native framework.
+ - [Redux](https://redux.js.org/) as global state managment.
+
+
+## How to setup
+
+### Clone repository
+
+```
+https://github.com/Lenugo/expo-tasks-challenge
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Install dependencies
+```
+npm install
+```
 
-## Learn more
+### Compiles and hot-reloads for development
+```
+npm run start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Author
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Github User - [Lenugo](https://www.github.com/Lenugo)
+- LinkedIn - [Lenugo](https://www.linkedin.com/in/Lenugo)
