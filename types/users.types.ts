@@ -1,4 +1,4 @@
-import { FlatListProps, TextProps } from "react-native";
+import { FlatListProps, TextInputProps, TextProps } from "react-native";
 
 export type IUsers = {
   createdAt: string;
@@ -7,7 +7,12 @@ export type IUsers = {
   id: string;
 }
 
-export type IFlatUSers = FlatListProps<IUsers[]> & {
+export type IUsersFilter = TextInputProps & {
+  searchInput: string;
+  onChangeInput: (value: string) => void;
+}
+
+export type IFlatUSers =  FlatListProps<IUsers[]> & {
   users: IUsers[];
 }
 

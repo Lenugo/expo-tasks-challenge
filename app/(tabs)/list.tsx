@@ -5,12 +5,14 @@ import UsersList from '@/components/list/UsersList';
 import { IUsers } from '@/types/users.types';
 import WrapperScrollView from '@/components/list/WrapperScrollView';
 import { ENV } from '../../config/env'
+import UsersFilter from '@/components/list/UsersFilter';
 
 export default function ListScreen() {
 
   const [users, setUsers] = useState<IUsers[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<boolean>(false);
+  const [searchInput, setSearchInput] = useState<string>('');
 
   const getUSers = async () => {
     setIsLoading(true);
@@ -38,12 +40,23 @@ export default function ListScreen() {
     getUSers();
   }, []);
   
+  const onInputChange = (value: string): void => {
+    setSearchInput(value);
+  };
+  
+  const filteredNames = users.filter(user =>
+    user.name.toLowerCase().includes(searchInput.toLowerCase())
+  );
+  
   return (
     <WrapperScrollView title='Contact List'>
       {
         isLoading ? <ActivityIndicator color='blue' size='large' /> :
-        errorMessage ? <RestartErrorMessage onCallFnc={getUSers} /> :
-        <UsersList users={users} data={undefined} renderItem={undefined} />
+          errorMessage ? <RestartErrorMessage onCallFnc={getUSers} /> :
+            <>
+              <UsersFilter searchInput={searchInput} onChangeInput={onInputChange} />  
+              <UsersList users={filteredNames} data={undefined} renderItem={undefined} />
+            </>
       }
     </WrapperScrollView>
   );
