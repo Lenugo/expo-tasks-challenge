@@ -8,10 +8,11 @@ import {
   SafeAreaView
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTask } from '../../redux/features/tasksSlice';
+import { addTask, removeTask, toggleTask } from '../../redux/features/tasksSlice';
 import TaskModal from './TaskModal';
 import { ITask } from '@/types/tasks.types';
 import { RootState } from '@/redux/store';
+import { Ionicons } from '@expo/vector-icons';
 
 const TasksScreen: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -22,19 +23,32 @@ const TasksScreen: React.FC = () => {
     dispatch(addTask(text));
   };
 
-  const renderItem = ({ item }: { item: ITask }): React.JSX.Element => (
+  const renderItem = ({ item }: { item: ITask }) => (
     <View style={styles.taskItem}>
-      <Text style={styles.taskText}>- {item.text}</Text>
+      <TouchableOpacity 
+        style={styles.touchable}
+        onPress={() => dispatch(toggleTask(item.id))}
+        testID={`task-item-${item.id}`}
+      >
+        <Text style={[ styles.taskText, item.completed && styles.taskTextDone ]}>
+          {item.text}
+        </Text>
+      </TouchableOpacity>
+      <Ionicons name='trash' color='#ff0000' size={24} onPress={() => dispatch(removeTask(item.id))} />
     </View>
   );
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>My Tasks</Text>
+        <View style={styles.contentTitle}>
+          <Text style={styles.title}>My Tasks</Text>
+          <Text style={styles.tasksLength}>{ tasks.length >= 1 && tasks.length }</Text>
+        </View>
         <TouchableOpacity 
           style={styles.addButton}
           onPress={() => setModalVisible(true)}
+          testID="add-task-button"
         >
           <Text style={styles.addButtonText}>Add New Task</Text>
         </TouchableOpacity>
@@ -46,6 +60,7 @@ const TasksScreen: React.FC = () => {
         keyExtractor={task => task.id.toString()}
         style={styles.list}
         contentContainerStyle={styles.listContent}
+        testID="tasks-list"
         ListEmptyComponent={
           <Text style={styles.emptyText}>No tasks to display</Text>
         }
@@ -75,10 +90,19 @@ const styles = StyleSheet.create({
     shadowRadius: 5.84,
     borderRadius: 16
   },
+  contentTitle: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: 8
+  },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20
+  },
+  tasksLength: {
+    fontSize: 20,
+    color: '#333'
   },
   addButton: {
     backgroundColor: '#007AAA',
@@ -106,10 +130,22 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.22,
-    shadowRadius: 2.22
+    shadowRadius: 2.22,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  touchable: {
+    width: '90%'
   },
   taskText: {
-    fontSize: 16
+    fontSize: 16,
+    flexShrink: 1
+  },
+  taskTextDone: {
+    fontSize: 16,
+    flexShrink: 1,
+    textDecorationLine: 'line-through',
+    color: '#aaa',
   },
   emptyText: {
     textAlign: 'center',

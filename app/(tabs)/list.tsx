@@ -41,7 +41,7 @@ export default function ListScreen() {
   return (
     <WrapperScrollView title='Contact List'>
       {
-        isLoading ? <ActivityIndicator color='red' size='large' /> :
+        isLoading ? <ActivityIndicator color='blue' size='large' /> :
         errorMessage ? <RestartErrorMessage onCallFnc={getUSers} /> :
         <UsersList users={users} data={undefined} renderItem={undefined} />
       }

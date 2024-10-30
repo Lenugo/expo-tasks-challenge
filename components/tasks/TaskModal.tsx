@@ -32,24 +32,27 @@ const TaskModal: React.FC<ITaskModal> = ({ visible, onClose, onSubmit }) => {
     >
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
-          <Text style={styles.modalTitle}>Add New Task</Text>
+          <Text style={styles.modalTitle}>New Task</Text>
           <TextInput
             style={styles.input}
             value={taskText}
             onChangeText={setTaskText}
             placeholder="Write your task"
             autoFocus
+            testID="task-input"
           />
           <View style={styles.buttonContainer}>
             <TouchableOpacity 
               style={[styles.button, styles.cancelButton]} 
               onPress={onClose}
+              testID="cancel-button"
             >
               <Text style={styles.buttonText}>Cancel</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.button, styles.submitButton]} 
               onPress={handleSubmit}
+              testID="submit-button"
             >
               <Text style={styles.buttonText}>Save</Text>
             </TouchableOpacity>

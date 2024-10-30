@@ -3,6 +3,7 @@ import { ModalProps } from "react-native/types";
 export type ITask = {
   id: number;
   text: string;
+  completed?: boolean
 }
 
 export interface ITasksState {
