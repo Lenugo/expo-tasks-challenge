@@ -5,7 +5,7 @@ import { StyleSheet, View, Text } from 'react-native'
 export default function USerCard({ item }: { item: IUsers }) {
 
   return (
-    <View style={styles.itemContainer}>
+    <View style={styles.itemContainer} testID='user-card-container'>
       <View style={styles.letterContainer}>
         <Text style={styles.letterChar}>{item.name.charAt(0)}</Text>
       </View>

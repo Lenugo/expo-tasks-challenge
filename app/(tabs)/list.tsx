@@ -1,4 +1,4 @@
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import RestartErrorMessage from '@/components/list/RestartErrorMessage';
 import UsersList from '@/components/list/UsersList';
@@ -10,7 +10,7 @@ import UsersFilter from '@/components/list/UsersFilter';
 export default function ListScreen() {
 
   const [users, setUsers] = useState<IUsers[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [errorMessage, setErrorMessage] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
 
@@ -25,11 +25,9 @@ export default function ListScreen() {
         return res.json();
       }).then(data => {
         setUsers(data);
-        setIsLoading(false);
       });
     } catch (error) {
       setErrorMessage(true);
-      setIsLoading(false);
       setUsers([]);
     } finally {
       setIsLoading(false);
@@ -51,7 +49,7 @@ export default function ListScreen() {
   return (
     <WrapperScrollView title='Contact List'>
       {
-        isLoading ? <ActivityIndicator color='blue' size='large' /> :
+        isLoading ? <ActivityIndicator testID='loading-indicator' color='blue' size='large' /> :
           errorMessage ? <RestartErrorMessage onCallFnc={getUSers} /> :
             <>
               <UsersFilter searchInput={searchInput} onChangeInput={onInputChange} />  

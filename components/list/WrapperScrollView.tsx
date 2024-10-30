@@ -4,9 +4,9 @@ import { IWrapperProps } from "@/types/wrapper.types";
 export default function WrapperScrollView({ title,  children }: IWrapperProps) {
 
   return (
-    <View style={styles.wrapperContainer}>
+    <View style={styles.wrapperContainer} testID='wrapper-container'>
       <Animated.ScrollView scrollEventThrottle={16}>
-        <View style={styles.wrapperContent}>
+        <View style={styles.wrapperContent} testID='wrapper-content'>
           <View style={styles.titleContainer}>
             <Text style={styles.tileTitle}>{ title }</Text>
           </View>
